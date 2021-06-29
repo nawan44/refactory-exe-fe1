@@ -1,0 +1,435 @@
+/* HOME */
+.root {
+  width: 100%;
+  margin: 100px 0 0 0;
+  text-align: center;
+  margin: 0 auto;
+  background-color:#EAE7E7 ;
+}
+
+.MuiAppBar {
+  color: #fff;
+  background-color: #05466A;
+}
+.paper {
+  text-align: center;
+  margin: 0 auto;
+  width: 800px;
+  padding: 20px;
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+.title {
+  font-size: 20px;
+  padding: 20px 0;
+}
+.head {
+  font-size: 16px;
+}
+.textField {
+  width: 90%;
+  margin: 10px;
+}
+.button {
+  width: 90%;
+  background-color: #3f51b5;
+  margin: 70px 0 30px 0;
+  color: #fff;
+  padding: 10px 0;
+}
+.status {
+  text-align: left;
+  margin: 20px 0 0 40px;
+}
+.axa .MuiFormControlLabel{
+font-size: 8px;
+}
+
+.aka .MuiSwitch-root{
+  width: 72px;
+  height: 20px;
+  padding: 0;
+
+
+}
+ .aka.MuiSwitch-switchBase	 {
+  width: 72px;
+  height: 20px;
+  color: pink;
+  padding: 0px;
+
+}
+
+
+
+.aka .Mui-checked	 {
+  transform: translateX(40px);
+  background-color: green; 
+}
+
+.aka .MuiSwitch-track	 {
+  width: 72px;
+  color: green; 
+
+}
+/*
+.aka .MuiSwitch-switchBase .Mui-checked		 {
+ 
+  padding: 0px;
+}
+.aka .MuiSwitch-thumb{
+  width: 24;
+    font-size: 10;
+
+    height: 24
+} */
+/* ARTICLE */
+
+.rootArticle {
+  width: 700;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.cardArea {
+  height: 300px;
+}
+.titleArticle {
+  width: 100%;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 5px 0;
+}
+.cardContent {
+  width: 100%;
+}
+.cardMedia {
+  float: left;
+  width: 30%;
+}
+.cardDesc {
+  float: left;
+  width: 70%;
+  font-size: 16px;
+  padding: 0 10px;
+  text-align: left;
+}
+
+@media (min-width: 600px) {
+  .root {
+    width: 375px;
+    margin: 10px 0 0 0;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .paper {
+    text-align: center;
+    margin: 0 auto;
+    width: 375px;
+    /* background-color: blue; */
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .title {
+    font-size: 20px;
+    padding: 20px 0;
+  }
+  .headCompleted {
+   width: 150px;
+   margin: 0 auto;
+   text-align: center;
+    font-size: 12px;
+    padding: 0;
+  }
+  .list {
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .textField {
+    width: 90%;
+    margin: 10px;
+  }
+  .button {
+    width: 90%;
+    background-color: #3f51b5;
+    margin: 70px 0 30px 0;
+    color: #fff;
+    padding: 10px 0;
+  }
+  .status {
+    text-align: left;
+    margin: 20px 0 0 40px;
+  }
+
+
+  /* ARTICLE */
+
+  .rootArticle {
+    width: 700;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+  .cardArea {
+    height: 300px;
+  }
+  .titleArticle {
+    width: 100%;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 5px 0;
+  }
+  .cardContent {
+    width: 100%;
+  }
+  .cardMedia {
+    float: left;
+    width: 30%;
+  }
+  .cardDesc {
+    float: left;
+    width: 70%;
+    font-size: 16px;
+    padding: 0 10px;
+    text-align: left;
+  }
+}
+@media (max-width: 600px) {
+  .root {
+    width: 375px;
+    margin: 10px 0 0 0;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .paper {
+    text-align: center;
+    margin: 0 auto;
+    width: 375px;
+    background-color: blue;
+    /* padding: 20px; */
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .title {
+    font-size: 20px;
+    padding: 20px 0;
+  }
+  .head {
+    font-size: 12px;
+    padding: 0;
+  }
+  .list {
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .textField {
+    width: 90%;
+    margin: 10px;
+  }
+  .button {
+    width: 90%;
+    background-color: #3f51b5;
+    margin: 70px 0 30px 0;
+    color: #fff;
+    padding: 10px 0;
+  }
+  .status {
+    text-align: left;
+    margin: 20px 0 0 40px;
+  }
+
+
+  /* ARTICLE */
+
+  .rootArticle {
+    width: 700;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+  .cardArea {
+    height: 300px;
+  }
+  .titleArticle {
+    width: 100%;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 5px 0;
+  }
+  .cardContent {
+    width: 100%;
+  }
+  .cardMedia {
+    float: left;
+    width: 30%;
+  }
+  .cardDesc {
+    float: left;
+    width: 70%;
+    font-size: 16px;
+    padding: 0 10px;
+    text-align: left;
+  }
+}
+@media (min-width: 768px) {
+  .root {
+    width: 375px;
+    margin: 10px 0 0 0;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .paper {
+    text-align: center;
+    margin: 0 auto;
+    width: 375px;
+    /* padding: 20px; */
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .title {
+    font-size: 20px;
+    padding: 20px 0;
+  }
+  .head {
+    font-size: 12px;
+    padding: 0;
+  }
+  .list {
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .textField {
+    width: 90%;
+    margin: 10px;
+  }
+  .button {
+    width: 90%;
+    background-color: #3f51b5;
+    margin: 70px 0 30px 0;
+    color: #fff;
+    padding: 10px 0;
+  }
+  .status {
+    text-align: left;
+    margin: 20px 0 0 40px;
+  }
+
+
+  /* ARTICLE */
+
+  .rootArticle {
+    width: 700;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+  .cardArea {
+    height: 300px;
+  }
+  .titleArticle {
+    width: 100%;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 5px 0;
+  }
+  .cardContent {
+    width: 100%;
+  }
+  .cardMedia {
+    float: left;
+    width: 30%;
+  }
+  .cardDesc {
+    float: left;
+    width: 70%;
+    font-size: 16px;
+    padding: 0 10px;
+    text-align: left;
+  }
+}
+@media (min-width: 992px) {
+  .root {
+    width: 100%;
+    background-color: brown;
+    margin: 10px 0 0 0;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .paper {
+    text-align: center;
+    margin: 0 auto;
+    width: 900px;
+    /* padding: 20px; */
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .title {
+    font-size: 20px;
+    padding: 20px 0;
+  }
+  .head {
+    font-size: 12px;
+    padding: 0;
+  }
+  .list {
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .textField {
+    width: 90%;
+    margin: 10px;
+  }
+  .button {
+    width: 90%;
+    background-color: #3f51b5;
+    margin: 70px 0 30px 0;
+    color: #fff;
+    padding: 10px 0;
+  }
+  .status {
+    text-align: left;
+    margin: 20px 0 0 40px;
+  }
+
+
+  /* ARTICLE */
+
+  .rootArticle {
+    width: 700;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+  .cardArea {
+    height: 300px;
+  }
+  .titleArticle {
+    width: 100%;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 5px 0;
+  }
+  .cardContent {
+    width: 100%;
+  }
+  .cardMedia {
+    float: left;
+    width: 30%;
+  }
+  .cardDesc {
+    float: left;
+    width: 70%;
+    font-size: 16px;
+    padding: 0 10px;
+    text-align: left;
+  }
+}
