@@ -35,12 +35,9 @@ const useStyles = makeStyles((theme: Theme) =>
         display: "block",
       },
     },
-    link :{
-      width:"80%",
-      float:"left"
-    },
+
     search: {
-      width:"20%",
+      width: "20%",
 
       float: "right",
       textAlign: "right",
@@ -116,7 +113,17 @@ export default function Topbar() {
         position="static"
       >
         <Toolbar>
-         <div className= {classes.link}>
+        <div className= "link">
+          <ul>
+            <li>
+              <a href="/contact">contact</a>
+            </li>
+            <li className="active">
+              <a href="/favorit" >favorit</a>
+            </li>
+          </ul>
+          </div>
+          {/* <div className= {classes.link}>
          <Link
             to="/contact"
             className="appbar-contact"
@@ -132,8 +139,7 @@ export default function Topbar() {
             {" "}
             favorit{" "}
           </Link>
-         </div>
-
+         </div> */}
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
