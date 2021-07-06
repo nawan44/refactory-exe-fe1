@@ -52,6 +52,51 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "auto",
       },
     },
+    ul: {
+      listStyleType: "none",
+    },
+    a: {
+      width: "100px",
+      float: "left",
+      fontSize: "20px",
+      padding: "10px",
+      position: "relative",
+      color: "#fff",
+      textDecoration: "none",
+      margin: "0 10px",
+      "&:visited": {
+        color: "green",
+        textDecoration: "none",
+      },
+      "&:hover": {
+        color: "#000",
+        textDecoration: "none",
+      },
+      "&:before": {
+        content: "",
+        position: "absolute",
+        width: " 100%",
+        height: "4px",
+        bottom: "-2px",
+        left: 0,
+        backgroundColor: " #000",
+        visibility: "hidden",
+        transform: "scaleX(0)",
+        transition: "all 0.3s ease-in-out 0s",
+      },
+    },
+    under: {
+      margin: "0 10px",
+      color: "#fff",
+      textDecoration: "none",
+      "&:active": {
+        textDecoration: "underline",
+      },
+      "&:visited": {
+        textDecoration: "underline",
+      },
+      
+    },
     searchIcon: {
       padding: theme.spacing(0, 2),
       height: "100%",
@@ -113,15 +158,23 @@ export default function Topbar() {
         position="static"
       >
         <Toolbar>
-        <div className= "link">
-          <ul>
-            <li>
-              <a href="/contact">contact</a>
-            </li>
-            <li className="active">
-              <a href="/favorit" >favorit</a>
-            </li>
-          </ul>
+          <div className="link">
+                <NavLink 
+                  to="/contact"
+                  className={classes.under}
+                  activeClassName="underline"
+                >
+                  Contact
+                </NavLink >{" "}
+       
+                <NavLink 
+                  to="/favorit"
+                  className={classes.under}
+                  activeClassName="underline"
+                >
+                  Favorit
+                </NavLink >
+       
           </div>
           {/* <div className= {classes.link}>
          <Link
