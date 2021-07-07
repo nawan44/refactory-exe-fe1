@@ -26,6 +26,17 @@ label.MuiFormLabel-root.formLabel {
 } 
 .underline {
     border-bottom-width: 2px;
+    
     text-decoration: underline;
     color: red;
+   }
+   a:active{
+    border-bottom-width: 2px;
+    
+    text-decoration: underline;
+    color: red;  
+   }
+   .span {
+    margin:0  0 0 10px;
+     color: #6D6B6B !important;
    }

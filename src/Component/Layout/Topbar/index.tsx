@@ -159,14 +159,14 @@ export default function Topbar() {
       >
         <Toolbar>
           <div className="link">
-                <NavLink 
+                {/* <NavLink 
                   to="/contact"
                   className={classes.under}
                   activeClassName="underline"
                 >
                   Contact
-                </NavLink >{" "}
-       
+                </NavLink >{" "} */}
+       <a href="/contact" className="a">CONTA</a>
                 <NavLink 
                   to="/favorit"
                   className={classes.under}
