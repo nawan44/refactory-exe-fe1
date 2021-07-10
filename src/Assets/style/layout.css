@@ -4,39 +4,42 @@
     color: #fff !important;
     background-color: aqua;
 }
-
 label.MuiFormLabel-root.formLabel {
     padding: 10px 0 !important;
 }
-
 .appbar-contact a.active:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
 }
-
 .active {
     color: orange;
 }
-
- .link {
+.link {
     width: 80%;
     float: left;
     background-color: aqua;
-} 
+}
+.a {
+    color: #fff;
+}
 .underline {
     border-bottom-width: 2px;
-    
     text-decoration: underline;
     color: red;
-   }
-   a:active{
+}
+.underline:active {
     border-bottom-width: 2px;
-    
     text-decoration: underline;
-    color: red;  
-   }
-   .span {
-    margin:0  0 0 10px;
-     color: #6D6B6B !important;
-   }
+    color: #fff;
+}
+
+.a:active {
+    border-bottom-width: 2px;
+    text-decoration: underline;
+    color: red;
+}
+.span {
+    margin: 0 0 0 10px;
+    color: #6D6B6B !important;
+}

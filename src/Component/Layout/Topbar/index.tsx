@@ -166,7 +166,7 @@ export default function Topbar() {
                 >
                   Contact
                 </NavLink >{" "} */}
-       <a href="/contact" className="a">CONTA</a>
+       <a href="/contact" className="a">Contact</a>
                 <NavLink 
                   to="/favorit"
                   className={classes.under}

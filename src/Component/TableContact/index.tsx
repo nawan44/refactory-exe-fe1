@@ -46,16 +46,14 @@ function TableContact() {
   useEffect(() => {
     getDataContact();
   }, []);
-  const myHeaders="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImwyMDAxNDAwMDRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIyNjJlZTQwMjcxYzdkZDMyM2EzZWNmNDIwMjg3ZjRhYyIsImlhdCI6MTYwNjcyNjg0NiwiZXhwIjoxNjA2ODEzMjQ2fQ.IMX8_G0beCWWdySB8ggNznR6y4xtEscPepIFQ5nqgLE"
   const getDataContact = async () => {
     try {
       const response = await fetch(
-        "https://phone-book-api.herokuapp.com/api/v1/contacts",
+       'https://phone-book-api.herokuapp.com/api/v1/contacts',
         {
           method: "GET",
           headers:{
-            Authorization: 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImwyMDAxNDAwMDRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIyNjJlZTQwMjcxYzdkZDMyM2EzZWNmNDIwMjg3ZjRhYyIsImlhdCI6MTYwNjcyNjg0NiwiZXhwIjoxNjA2ODEzMjQ2fQ.IMX8_G0beCWWdySB8ggNznR6y4xtEscPepIFQ5nqgLE'
-
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImwyMDAxNDAwMDRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIyNjJlZTQwMjcxYzdkZDMyM2EzZWNmNDIwMjg3ZjRhYyIsImlhdCI6MTYwNjcyNjg0NiwiZXhwIjoxNjA2ODEzMjQ2fQ.IMX8_G0beCWWdySB8ggNznR6y4xtEscPepIFQ5nqgLE'
           },
           body: JSON.stringify(FormData),
         }
@@ -83,10 +81,10 @@ function TableContact() {
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.name}>
-              <TableCell>{row.calories}</TableCell>
-              <TableCell>{row.fat}</TableCell>
-              <TableCell>{row.carbs}</TableCell>
-              <TableCell>{row.protein}</TableCell>
+              <TableCell>{row.name}</TableCell>
+              {/* <TableCell>{row.phone}</TableCell>
+              <TableCell>{row.job}</TableCell>
+              <TableCell>{row.company}</TableCell> */}
             </TableRow>
           ))}
         </TableBody>
