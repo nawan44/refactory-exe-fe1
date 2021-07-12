@@ -12,14 +12,20 @@ label.MuiFormLabel-root.formLabel {
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
 }
+
 .active {
     color: orange;
 }
-.link {
-    width: 80%;
-    float: left;
-    background-color: aqua;
+.toolbar{
+    width: 100%;
 }
+.container-search{
+    width: 30%;
+    float: right;
+    margin: 0 0 0 50px;
+}
+
+
 .a {
     color: #fff;
 }

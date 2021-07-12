@@ -35,11 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
         display: "block",
       },
     },
-
     search: {
-      width: "20%",
-
-      float: "right",
       textAlign: "right",
       position: "relative",
       borderRadius: theme.shape.borderRadius,
@@ -86,8 +82,9 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     under: {
-      margin: "0 10px",
+      margin: "0 20px",
       color: "#fff",
+      fontSize:"20px",
       textDecoration: "none",
       "&:active": {
         textDecoration: "underline",
@@ -95,7 +92,6 @@ const useStyles = makeStyles((theme: Theme) =>
       "&:visited": {
         textDecoration: "underline",
       },
-      
     },
     searchIcon: {
       padding: theme.spacing(0, 2),
@@ -116,7 +112,7 @@ const useStyles = makeStyles((theme: Theme) =>
       transition: theme.transitions.create("width"),
       width: "100%",
       [theme.breakpoints.up("sm")]: {
-        width: "12ch",
+        width: "20ch",
         "&:focus": {
           width: "20ch",
         },
@@ -148,7 +144,6 @@ const dataMenu = [
 
 export default function Topbar() {
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       <AppBar
@@ -158,53 +153,36 @@ export default function Topbar() {
         position="static"
       >
         <Toolbar>
-          <div className="link">
-                {/* <NavLink 
-                  to="/contact"
-                  className={classes.under}
-                  activeClassName="underline"
-                >
-                  Contact
-                </NavLink >{" "} */}
-       <a href="/contact" className="a">Contact</a>
-                <NavLink 
-                  to="/favorit"
-                  className={classes.under}
-                  activeClassName="underline"
-                >
-                  Favorit
-                </NavLink >
-       
+          <div style={{width:"80%", textAlign:"left"}} >
+            <NavLink
+              to="/contact"
+              className={classes.under}
+              activeStyle={{ color: "#fff", borderBottom: " 2px solid #fff" }}
+            >
+              Contact
+            </NavLink>{" "}
+            <NavLink
+              to="/favorit"
+              className={classes.under}
+              activeStyle={{ color: "#fff", borderBottom: " 2px solid #fff" }}
+            >
+              Favorit
+            </NavLink>
           </div>
-          {/* <div className= {classes.link}>
-         <Link
-            to="/contact"
-            className="appbar-contact"
-            style={{ margin: "0 10px", color: "#fff", textDecoration: "none" }}
-          >
-            {" "}
-            Contact{" "}
-          </Link>
-          <Link
-            to="/favorit"
-            style={{ margin: "0 10px", color: "#fff", textDecoration: "none" }}
-          >
-            {" "}
-            favorit{" "}
-          </Link>
-         </div> */}
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+          <div className="container-search">
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ "aria-label": "search" }}
+              />
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
           </div>
         </Toolbar>
       </AppBar>
