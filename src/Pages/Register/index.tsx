@@ -18,35 +18,35 @@ export default function Register() {
      data.preventDefault();
     history.push("/login");
     
-    //     try {
-    //       let form = { ...state };
-    //       // console.log("form", form);
-    //       const response = await fetch(
-    //        "https://phone-book-api.herokuapp.com/api/v1/signup",
-    //         {
-    //           method: "POST",
+         try {
+           let form = { ...state };
+           // console.log("form", form);
+          const response = await fetch(
+           "https://phone-book-api.herokuapp.com/api/v1/signup",
+            {
+              method: "POST",
           
-    //           body: JSON.stringify(form),
-    //         }
-    //       );
-    //       const res = await response.json();
-    //       const {name, value}: any = e.target;
-    //       const {email, value}: any = e.target;
-    //       const {password, value}: any = e.target;
-    //       const {confirmPasword, value}: any = e.target;
+              body: JSON.stringify(form),
+            }
+          );
+          const res = await response.json();
+          const {name, value}: any = e.target;
+          const {email, value}: any = e.target;
+          const {password, value}: any = e.target;
+          const {confirmPasword, value}: any = e.target;
 
-    //       // console.log("res>>", res);
-    //       setstate({
-    //         [name]: "",
-    //         [email]: "",
-    //         [password]: "",
-    //         [confirmPasword]: ""
+          // console.log("res>>", res);
+          setstate({
+            [name]: "",
+            [email]: "",
+            [password]: "",
+            [confirmPasword]: ""
            
-    //       });
-    //     //   alert("success", res.status);
-    //     } catch (err) {
-    //     //   alert("error", err.message);
-    //     }
+          });
+        //   alert("success", res.status);
+        } catch (err) {
+         //   alert("error", err.message);
+         }
      };
     
     return (
