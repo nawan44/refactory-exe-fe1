@@ -11,7 +11,14 @@ import React, { useEffect, useState } from "react";
 
 export default function Register() {
   const history = useHistory();
-  const [state, setstate] = useState({
+  interface MyObject {
+    name: string;
+    email: string;
+    password: string;
+    confirmPasword: string;
+  }
+
+  const [state, setState] = useState<MyObject>({
     name: "",
     email: "",
     password: "",
@@ -30,29 +37,28 @@ export default function Register() {
         "https://phone-book-api.herokuapp.com/api/v1/signup",
         {
           method: "POST",
-          // headers: {
-          //   "Content-Type": "application/json",
-          //   Authorization: "",
-          // },
+          headers: {
+            "Content-Type": "application/json",
+        },
           body: JSON.stringify(form),
         }
       );
       const res = await response.json();
       console.log("res>>", res);
-      setstate({
+      setState({
         name: "",
         email: "",
         password: "",
         confirmPasword: "",
       });
-      //   alert("success", res.status);
+        alert( res.status);
     } catch (err) {
-      //    alert("error", err.message);
+         alert(err.message);
     }
   };
-//   const handleChange = () => {
-//     setstate({ ...state, [target.name]: target.value });
-//   }
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
   return (
     <div className="container-login">
       <form onSubmit={handleSubmit}>
@@ -65,6 +71,9 @@ export default function Register() {
             <Typography className="typography">REGISTER</Typography>
             <TextField
               value={state.name}
+              name="name"
+              id="name"
+              onChange={handleChange}
               InputProps={{
                 className: "textfield",
                 startAdornment: (
@@ -79,6 +88,9 @@ export default function Register() {
             />
             <TextField
               value={state.email}
+              name="email"
+              id="email"
+              onChange={handleChange}
               InputProps={{
                 className: "textfield",
                 startAdornment: (
@@ -93,6 +105,9 @@ export default function Register() {
             />
             <TextField
               value={state.password}
+              name="password"
+              id="password"
+              onChange={handleChange}
               InputProps={{
                 className: "textfield",
                 startAdornment: (
@@ -102,6 +117,23 @@ export default function Register() {
                 ),
               }}
               placeholder="Password"
+              variant="outlined"
+              className="textfield-name"
+            />
+            <TextField
+              value={state.confirmPasword}
+              name="confirmPasword"
+              id="confirmPasword"
+              onChange={handleChange}
+              InputProps={{
+                className: "textfield",
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockOpenIcon style={{ color: "#fff" }} />
+                  </InputAdornment>
+                ),
+              }}
+              placeholder="Confirm Password"
               variant="outlined"
               className="textfield-name"
             />
