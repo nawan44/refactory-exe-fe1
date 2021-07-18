@@ -25,37 +25,82 @@ export default function Register() {
     confirmPasword: "",
   });
 
-  const handleSubmit = async () => {
-    // let form = { ...state};
-    //  data.preventDefault();
-    // history.push("/login");
+  function handleSubmit<T>(url: string): Promise<T> {
 
-    try {
-      let form = { ...state };
-      console.log("form", form);
-      const response = await fetch(
-        "https://phone-book-api.herokuapp.com/api/v1/signup",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-        },
-          body: JSON.stringify(form),
+  //   // let form = { ...state};
+  //   //  data.preventDefault();
+  //   // history.push("/login");
+
+  //   try {
+  //     let form = { ...state };
+  //     console.log("form", form);
+  //     const URL = "https://phone-book-api.herokuapp.com/api/v1/signup"
+  //     const rawResponse = await fetch(URL, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Accept': 'application/json, text/plain, */*',
+  //   'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify(form)
+  //     });
+  //     const content = await rawResponse.json();
+    
+  //     console.log(content);
+
+  //     // const response = await fetch(
+  //     //   "https://phone-book-api.herokuapp.com/api/v1/signup",
+  //     //   {
+  //     //     method: "POST",
+  //     //     headers: {
+  //     //       'Accept': 'application/json',
+  //     //       'Content-Type': 'application/json'
+  //     //     },
+  //     //     body: JSON.stringify({
+  //     //       name: state.name,
+  //     //       email: state.email,
+  //     //       password: state.password,
+  //     //       confirmPasword: state.confirmPasword,
+        
+
+  //     //     })
+  //     //   }
+  //     // );
+  //     // const res = await response.json();
+  //     // console.log("res>>", res);
+  //     setState({
+  //       name: "",
+  //       email: "",
+  //       password: "",
+  //       confirmPasword: "",
+  //     });
+  //       alert( content.status);
+  //       // console.log( res.status)
+  //   } catch (err) {
+  //        alert(err.message);
+  //       //  console.log(err.message);
+
+  //   }
+  // const url ="https://phone-book-api.herokuapp.com/api/v1/signup"
+    return fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText)
         }
-      );
-      const res = await response.json();
-      console.log("res>>", res);
-      setState({
-        name: "",
-        email: "",
-        password: "",
-        confirmPasword: "",
-      });
-        alert( res.status);
-    } catch (err) {
-         alert(err.message);
+        return response.json() as Promise<{ data: T }>
+      })
+      .then(data => {
+          return data.data
+      })
     }
-  };
+   
+};
+handleSubmit<{ name: string; email: string; password: string; confirmPassword: string; message: string }>('https://phone-book-api.herokuapp.com/api/v1/signup')
+.then(({ name, email, password,confirmPassword, message }) => {
+  console.log(name, email, password,confirmPassword, message)
+})
+.catch(error => {
+alert(error.message)  })
+  
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setState({ ...state, [event.target.name]: event.target.value });
   };
