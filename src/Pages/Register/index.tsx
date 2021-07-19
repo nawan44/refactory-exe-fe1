@@ -18,95 +18,54 @@ export default function Register() {
     confirmPasword: string;
   }
 
-  const [state, setState] = useState<MyObject>({
+  const [dataUser, setDataUser] = useState<MyObject>({
     name: "",
     email: "",
     password: "",
     confirmPasword: "",
   });
-
-  function handleSubmit<T>(url: string): Promise<T> {
-
-  //   // let form = { ...state};
-  //   //  data.preventDefault();
-  //   // history.push("/login");
-
-  //   try {
-  //     let form = { ...state };
-  //     console.log("form", form);
-  //     const URL = "https://phone-book-api.herokuapp.com/api/v1/signup"
-  //     const rawResponse = await fetch(URL, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Accept': 'application/json, text/plain, */*',
-  //   'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify(form)
-  //     });
-  //     const content = await rawResponse.json();
-    
-  //     console.log(content);
-
-  //     // const response = await fetch(
-  //     //   "https://phone-book-api.herokuapp.com/api/v1/signup",
-  //     //   {
-  //     //     method: "POST",
-  //     //     headers: {
-  //     //       'Accept': 'application/json',
-  //     //       'Content-Type': 'application/json'
-  //     //     },
-  //     //     body: JSON.stringify({
-  //     //       name: state.name,
-  //     //       email: state.email,
-  //     //       password: state.password,
-  //     //       confirmPasword: state.confirmPasword,
-        
-
-  //     //     })
-  //     //   }
-  //     // );
-  //     // const res = await response.json();
-  //     // console.log("res>>", res);
-  //     setState({
-  //       name: "",
-  //       email: "",
-  //       password: "",
-  //       confirmPasword: "",
-  //     });
-  //       alert( content.status);
-  //       // console.log( res.status)
-  //   } catch (err) {
-  //        alert(err.message);
-  //       //  console.log(err.message);
-
-  //   }
-  // const url ="https://phone-book-api.herokuapp.com/api/v1/signup"
-    return fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        }
-        return response.json() as Promise<{ data: T }>
-      })
-      .then(data => {
-          return data.data
-      })
+  const handleFormSubmit = async (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault()
+    const data = {
+      name: dataUser?.name,
+      email: dataUser?.email,
+      phone: dataUser?.password,
+      income: dataUser?.confirmPasword
     }
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    };
+
+    try {
+      const response = await fetch('https://phone-book-api.herokuapp.com/api/v1/signup', requestOptions)
+      const res = await response.json()
+      console.log(res.data)
+      alert(res.data)
+    } catch (error) {
+      alert(error)
+      console.log(error)
+    }
+  }
    
-};
-handleSubmit<{ name: string; email: string; password: string; confirmPassword: string; message: string }>('https://phone-book-api.herokuapp.com/api/v1/signup')
-.then(({ name, email, password,confirmPassword, message }) => {
-  console.log(name, email, password,confirmPassword, message)
-})
-.catch(error => {
-alert(error.message)  })
+//('https://phone-book-api.herokuapp.com/api/v1/signup')
   
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setState({ ...state, [event.target.name]: event.target.value });
+  const handleChange = (e: any): void => {
+    e.preventDefault();
+    const { name, email, password, confirmPassword, value } = e.target;
+    setDataUser({
+      ...dataUser,
+      [name]: value,
+      [email]: value,
+      [password]: value,
+      [confirmPassword]: value,
+    });
   };
   return (
     <div className="container-login">
-      <form onSubmit={handleSubmit}>
+      <form >
         <div className="container-login-left">
           <div className="logo-contact"></div>
         </div>
@@ -115,7 +74,7 @@ alert(error.message)  })
           <div className="box-login">
             <Typography className="typography">REGISTER</Typography>
             <TextField
-              value={state.name}
+              value={dataUser.name}
               name="name"
               id="name"
               onChange={handleChange}
@@ -132,7 +91,7 @@ alert(error.message)  })
               className="textfield-name"
             />
             <TextField
-              value={state.email}
+              value={dataUser.email}
               name="email"
               id="email"
               onChange={handleChange}
@@ -149,7 +108,7 @@ alert(error.message)  })
               className="textfield-name"
             />
             <TextField
-              value={state.password}
+              value={dataUser.password}
               name="password"
               id="password"
               onChange={handleChange}
@@ -166,7 +125,7 @@ alert(error.message)  })
               className="textfield-name"
             />
             <TextField
-              value={state.confirmPasword}
+              value={dataUser.confirmPasword}
               name="confirmPasword"
               id="confirmPasword"
               onChange={handleChange}
@@ -182,7 +141,7 @@ alert(error.message)  })
               variant="outlined"
               className="textfield-name"
             />
-            <Button type="submit" className="btn-register">
+            <Button type="submit" onClick={handleFormSubmit} className="btn-register">
               REGISTER
             </Button>
           </div>
