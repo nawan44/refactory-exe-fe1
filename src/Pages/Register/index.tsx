@@ -29,8 +29,8 @@ export default function Register() {
     const data = {
       name: dataUser?.name,
       email: dataUser?.email,
-      phone: dataUser?.password,
-      income: dataUser?.confirmPasword
+      password: dataUser?.password,
+      confirmPasword: dataUser?.confirmPasword
     }
 
     const requestOptions = {
