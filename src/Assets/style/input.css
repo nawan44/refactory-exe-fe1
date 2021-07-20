@@ -4,3 +4,9 @@
 .account-icon.MuiSvgIcon-root{
     width: 100%;
 }
+.error {
+    font-size: 12px;
+    margin: 5px 0 10px 0;
+    color: red;
+    padding: 10px 0px;
+  }

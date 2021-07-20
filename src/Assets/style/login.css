@@ -4,7 +4,6 @@
     text-align: center;
     margin: 0 auto;
     margin-top: 150px;
-
 }
 
 .container-login-left {
@@ -27,15 +26,17 @@
     text-align: center;
     color: #fff;
     margin: 0 auto;
-    background-color:#EAE7E7 ;
+    background-color: #EAE7E7;
 }
-.box-login{
+
+.box-login {
     width: 90%;
     text-align: center;
     margin: 0 auto;
     margin-top: 20px;
 }
-.box-login .typography{
+
+.box-login .typography {
     text-align: center;
     margin: 0 auto;
     font-family: Roboto;
@@ -53,13 +54,39 @@
     background: #BCBCBC;
     border-radius: 10px;
     margin: 10px 0 !important;
+   
 }
-.textfield-name{
+
+.textfield-name {
+    font-size: 9px;
     color: #fff;
 }
-.input-props{
+
+.textfield-name .MuiFilledInput-inputAdornedStart.Mui-focused {
+    background-color: brown
+}
+
+.textfield::afters {
+    background-color: brown;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    height: 2px;
+  border: none;
+  -webkit-text-fill-color: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.input-props {
     color: #fff !important;
 }
+
 .btn-login {
     width: 40%;
     height: 36px;
@@ -78,5 +105,4 @@
     border-radius: 10px;
     color: #fff !important;
     margin: 20px 5px !important;
-
 }

@@ -8,6 +8,7 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Register() {
   const history = useHistory();
@@ -17,55 +18,80 @@ export default function Register() {
     password: string;
     confirmPasword: string;
   }
-
+  interface Pass {
+    content: string;
+    onChange: (content: string) => void;  }
   const [dataUser, setDataUser] = useState<MyObject>({
     name: "",
     email: "",
     password: "",
     confirmPasword: "",
   });
+  console.log("data user", dataUser);
+  const [errorData, setErrorData] =  useState<Pass| null>(null);
   const handleFormSubmit = async (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault()
+    e.preventDefault();
+    history.push("/login");
+
     const data = {
       name: dataUser?.name,
       email: dataUser?.email,
       password: dataUser?.password,
-      confirmPasword: dataUser?.confirmPasword
-    }
+      confirmPasword: dataUser?.confirmPasword,
+    };
 
     const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
     };
 
     try {
-      const response = await fetch('https://phone-book-api.herokuapp.com/api/v1/signup', requestOptions)
-      const res = await response.json()
-      console.log(res.data)
-      alert(res.data)
+      const response = await fetch(
+        "https://phone-book-api.herokuapp.com/api/v1/signup",
+        requestOptions
+      );
+      const res = await response.json();
+      console.log(res.data);
+      alert("Berhasil Mendaftar");
     } catch (error) {
-      alert(error)
-      console.log(error)
+      alert(error);
+      console.log(error);
     }
-  }
-   
-//('https://phone-book-api.herokuapp.com/api/v1/signup')
-  
+  };
+
+  //('https://phone-book-api.herokuapp.com/api/v1/signup')
+
   const handleChange = (e: any): void => {
     e.preventDefault();
-    const { name, email, password, confirmPassword, value } = e.target;
+    const { name, email, value } = e.target;
+
     setDataUser({
       ...dataUser,
       [name]: value,
       [email]: value,
-      [password]: value,
-      [confirmPassword]: value,
     });
   };
+  // const handleChangePass = (e: any): void => {
+  //   e.preventDefault();
+  //   // setValue: (value: string) => void;
+  //   const { password, confirmPassword, value } = e.target;
+  //   let text = e.target.value;
+  //   let reg = /^([A-Za-z0-9]{1,4})(\s|-)*([0-9]{1,5})(\s|-)*([A-Za-z]{0,3})$/i;
+  //   if ((text === "" || reg.test(text)) && text.length == 8) {
+  //     setDataUser({
+  //       ...dataUser,
+  //       [password]: value,
+  //       [confirmPassword]: value,
+  //     });
+  //   } else {
+  //     setErrorData("❌ Panjang Password 8 karakter");
+  //   }    console.log(text);
+
+  // };
   return (
     <div className="container-login">
-      <form >
+      <form>
         <div className="container-login-left">
           <div className="logo-contact"></div>
         </div>
@@ -77,6 +103,9 @@ export default function Register() {
               value={dataUser.name}
               name="name"
               id="name"
+              // multiline
+              // rows={5}
+              // rowsMax={10}
               onChange={handleChange}
               InputProps={{
                 className: "textfield",
@@ -110,8 +139,9 @@ export default function Register() {
             <TextField
               value={dataUser.password}
               name="password"
-              id="password"
-              onChange={handleChange}
+              id="password"              
+              // error={errorData}
+              // onChange={handleChangePass}
               InputProps={{
                 className: "textfield",
                 startAdornment: (
@@ -124,11 +154,12 @@ export default function Register() {
               variant="outlined"
               className="textfield-name"
             />
+            {errorData && <div className="error">{errorData}</div>}
             <TextField
               value={dataUser.confirmPasword}
               name="confirmPasword"
               id="confirmPasword"
-              onChange={handleChange}
+              // onChange={handleChangePass}
               InputProps={{
                 className: "textfield",
                 startAdornment: (
@@ -141,10 +172,17 @@ export default function Register() {
               variant="outlined"
               className="textfield-name"
             />
-            <Button type="submit" onClick={handleFormSubmit} className="btn-register">
+            <Button
+              type="submit"
+              onClick={handleFormSubmit}
+              className="btn-register"
+            >
               REGISTER
             </Button>
           </div>
+          <Typography style={{ color: "#000" }}>
+            Sudah Punya Akun ? <NavLink to="/login">Login</NavLink>
+          </Typography>
         </div>
       </form>
     </div>
