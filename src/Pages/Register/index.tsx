@@ -18,9 +18,9 @@ export default function Register() {
     password: string;
     confirmPasword: string;
   }
-  interface Pass {
-    content: string;
-    onChange: (content: string) => void;  }
+  // interface Pass {
+  //   type: string[] ;
+  //    }
   const [dataUser, setDataUser] = useState<MyObject>({
     name: "",
     email: "",
@@ -28,11 +28,10 @@ export default function Register() {
     confirmPasword: "",
   });
   console.log("data user", dataUser);
-  const [errorData, setErrorData] =  useState<Pass| null>(null);
+  // const [errorData, setErrorData] =  useState<Pass[]>([])
   const handleFormSubmit = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     history.push("/login");
-
     const data = {
       name: dataUser?.name,
       email: dataUser?.email,
@@ -59,9 +58,6 @@ export default function Register() {
       console.log(error);
     }
   };
-
-  //('https://phone-book-api.herokuapp.com/api/v1/signup')
-
   const handleChange = (e: any): void => {
     e.preventDefault();
     const { name, email, value } = e.target;
@@ -79,6 +75,7 @@ export default function Register() {
   //   let text = e.target.value;
   //   let reg = /^([A-Za-z0-9]{1,4})(\s|-)*([0-9]{1,5})(\s|-)*([A-Za-z]{0,3})$/i;
   //   if ((text === "" || reg.test(text)) && text.length == 8) {
+  //     setErrorData("");
   //     setDataUser({
   //       ...dataUser,
   //       [password]: value,
@@ -154,7 +151,7 @@ export default function Register() {
               variant="outlined"
               className="textfield-name"
             />
-            {errorData && <div className="error">{errorData}</div>}
+            {/* {errorData && <div className="error">{errorData}</div>} */}
             <TextField
               value={dataUser.confirmPasword}
               name="confirmPasword"

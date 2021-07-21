@@ -1,39 +1,38 @@
 .container-login {
-    width: 600px;
-    height: 350px;
+    width: 600px ;
+    height: 450px;
     text-align: center;
     margin: 0 auto;
-    margin-top: 150px;
+    padding-top: 75px;
 }
 
 .container-login-left {
-    width: 250px;
-    height: 350px;
+    width: 300px;
+    height: 450px;
     float: left;
     background: #05466A;
 }
 
 .logo-contact {
-    width: 225px;
-    height: 300px;
+    width: 300px;
+    height: 450px;
     background: url(../../Assets/background/logo-contact.png);
 }
 
 .container-login-right {
     float: left;
-    width: 50%;
-    height: 350px;
-    text-align: center;
+    width: 300px;
+    height: 450px;
     color: #fff;
-    margin: 0 auto;
     background-color: #EAE7E7;
+    text-align: center ;
+    margin: 0 auto ;
 }
 
 .box-login {
-    width: 90%;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 20px;
+    width: 100%;
+    text-align: center ;
+    margin: 0 auto ;
 }
 
 .box-login .typography {
@@ -48,20 +47,28 @@
 }
 
 .textfield {
-    width: 200px;
+    width: 250px;
     height: 40px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     background: #BCBCBC;
     border-radius: 10px;
-    margin: 10px 0 !important;
-   
+    margin-top: 20px !important;
+margin: 0 auto;
+text-align: center;   
 }
 
 .textfield-name {
     font-size: 9px;
     color: #fff;
 }
-
+.textfield-password {
+    font-size: 9px;
+    color: #fff;
+}
+.textfield-name Input {
+    font-size: 12px;
+    color: #fff;
+}
 .textfield-name .MuiFilledInput-inputAdornedStart.Mui-focused {
     background-color: brown
 }
@@ -93,7 +100,7 @@ select:-webkit-autofill:focus {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     background: #E94560 !important;
     border-radius: 10px;
-    margin: 20px 5px !important;
+    margin: 30px 5px !important;
     color: #fff !important;
 }
 
