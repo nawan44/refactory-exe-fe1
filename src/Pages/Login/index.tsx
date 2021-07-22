@@ -7,8 +7,59 @@ import {
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 export default function Login() {
+  const history = useHistory();
+  interface MyObject {
+    email: string;
+    password: string;
+  }
+  const [dataUser, setDataUser] = useState<MyObject>({
+    email: "",
+    password: "",
+  });
+  console.log("data user", dataUser);
+  const handleFormSubmit = async (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    history.push("/login");
+    const data = {
+      email: dataUser?.email,
+      password: dataUser?.password,
+    };
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    };
+
+    try {
+      const response = await fetch(
+        "https://phone-book-api.herokuapp.com/api/v1/signin",
+        requestOptions
+      );
+      const res = await response.json();
+      console.log(res.data);
+      alert("Berhasil Login");
+    } catch (error) {
+      alert(error);
+      console.log(error);
+    }
+  };
+  const handleChange = (e: any): void => {
+    e.preventDefault();
+    const { name, email, password,  value } = e.target;
+
+    setDataUser({
+      ...dataUser,
+      [name]: value,
+      [email]: value,
+      [password]: value,
+    });
+  };
+
   return (
     <div className="container-login">
       <div className="container-login-left">
@@ -29,6 +80,10 @@ export default function Login() {
             placeholder="Email"
             variant="outlined"
             className="textfield-name"
+            value={dataUser.email}
+            name="email"
+            id="email"
+            onChange={handleChange}
           />
           <TextField
             InputProps={{
@@ -41,10 +96,19 @@ export default function Login() {
             }}
             placeholder="Password"
             variant="outlined"
-            style={{color:"#fff"}}
-            className="textfield-password"
+            style={{ color: "#fff" }}
+            className="textfield-name"
+            value={dataUser.password}
+            name="password"
+            id="password"
+            onChange={handleChange}
+
           />
-          <Button className="btn-login">
+          <Button
+            type="submit"
+            onClick={handleFormSubmit}
+            className="btn-login"
+          >
             <Link
               to="/contact"
               style={{
