@@ -43,6 +43,8 @@ export default function Login() {
       const res = await response.json();
       console.log(res.data);
       alert("Berhasil Login");
+      history.push("/contact");
+
     } catch (error) {
       alert(error);
       console.log(error);
