@@ -38,32 +38,60 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-function TableContact() {
+function TableContact =() => {
   const classes = useStyles();
-  const [dataContact, setDataContact] = useState("");
+  interface MyData {
+    name: string;
+    phone: string;
+    job: string;
+    company: string;
+    email: string;
+    image: string;
+  }
+  const [dataContact, setDataContact] = useState<MyData>({
+    name: "",
+    phone: "",
+    job: "",
+    company: "",
+    email: "",
+    image: "",
+  });
   console.log("dataContact", dataContact);
 
   useEffect(() => {
-    getDataContact();
+    Requests.getDataContact()
+    .then(setDataContact)
+    .catch (err => console.log(err));
   }, []);
-  const getDataContact = async () => {
+  const getDataContact = async (e: React.MouseEvent<HTMLElement>) => {
+    const data = {
+      name: dataContact?.name,
+      phone: dataContact?.phone,
+      job: dataContact?.job,
+      company: dataContact?.company,
+      email: dataContact?.email,
+      image: dataContact?.image,
+    };
+
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImwyMDAxNDAwMDRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIyNjJlZTQwMjcxYzdkZDMyM2EzZWNmNDIwMjg3ZjRhYyIsImlhdCI6MTYwNjcyNjg0NiwiZXhwIjoxNjA2ODEzMjQ2fQ.IMX8_G0beCWWdySB8ggNznR6y4xtEscPepIFQ5nqgLE",
+      },
+      body: JSON.stringify(data),
+    };
     try {
       const response = await fetch(
-       'https://phone-book-api.herokuapp.com/api/v1/contacts',
-        {
-          method: "GET",
-          headers:{
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImwyMDAxNDAwMDRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIyNjJlZTQwMjcxYzdkZDMyM2EzZWNmNDIwMjg3ZjRhYyIsImlhdCI6MTYwNjcyNjg0NiwiZXhwIjoxNjA2ODEzMjQ2fQ.IMX8_G0beCWWdySB8ggNznR6y4xtEscPepIFQ5nqgLE'
-          },
-          body: JSON.stringify(FormData),
-        }
+        "https://phone-book-api.herokuapp.com/api/v1/contacts",
+        requestOptions
       );
-      let res = await response.json();
-      setDataContact(res.data);
+      const res = await response.json();
       console.log(res.data);
-
-    } catch (err) {
-      alert(err.message);
+      alert("Berhasil Mendaftar");
+    } catch (error) {
+      alert(error);
+      console.log(error);
     }
   };
 

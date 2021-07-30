@@ -34,7 +34,6 @@ export default function Login() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     };
-
     try {
       const response = await fetch(
         "https://phone-book-api.herokuapp.com/api/v1/signin",

@@ -12,6 +12,7 @@ import Topbar from "../../../Component/Layout/Topbar";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 function AddContact() {
+  
   return (
     <div style={{ backgroundColor: "#EAE7E7" , height:"100vh"}}>
       <Topbar />
@@ -96,7 +97,6 @@ function AddContact() {
               textAlign: "center",
             }}
           >
-          
             <Grid>
               <label>
               <AccountCircleIcon
