@@ -38,7 +38,7 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-function TableContact =() => {
+function TableContact () {
   const classes = useStyles();
   interface MyData {
     name: string;
@@ -58,42 +58,49 @@ function TableContact =() => {
   });
   console.log("dataContact", dataContact);
 
-  useEffect(() => {
-    Requests.getDataContact()
-    .then(setDataContact)
-    .catch (err => console.log(err));
-  }, []);
-  const getDataContact = async (e: React.MouseEvent<HTMLElement>) => {
-    const data = {
-      name: dataContact?.name,
-      phone: dataContact?.phone,
-      job: dataContact?.job,
-      company: dataContact?.company,
-      email: dataContact?.email,
-      image: dataContact?.image,
-    };
+  useEffect(function effectFunction() {
+    fetch('https://phone-book-api.herokuapp.com/api/v1/contacts', {   method: "GET",
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'email': 'l200140004@gmail.com',
+      'password': 'l200140004'
+    }})
+        .then(response => response.json())
+        .then(({ data: dataContact }) => {
+          setDataContact(dataContact);
+        });
+}, []);
+  // const getDataContact = async (e: React.MouseEvent<HTMLElement>) => {
+  //   const data = {
+  //     name: dataContact?.name,
+  //     phone: dataContact?.phone,
+  //     job: dataContact?.job,
+  //     company: dataContact?.company,
+  //     email: dataContact?.email,
+  //     image: dataContact?.image,
+  //   };
 
-    const requestOptions = {
-      method: "GET",
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImwyMDAxNDAwMDRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIyNjJlZTQwMjcxYzdkZDMyM2EzZWNmNDIwMjg3ZjRhYyIsImlhdCI6MTYwNjcyNjg0NiwiZXhwIjoxNjA2ODEzMjQ2fQ.IMX8_G0beCWWdySB8ggNznR6y4xtEscPepIFQ5nqgLE",
-      },
-      body: JSON.stringify(data),
-    };
-    try {
-      const response = await fetch(
-        "https://phone-book-api.herokuapp.com/api/v1/contacts",
-        requestOptions
-      );
-      const res = await response.json();
-      console.log(res.data);
-      alert("Berhasil Mendaftar");
-    } catch (error) {
-      alert(error);
-      console.log(error);
-    }
-  };
+  //   const requestOptions = {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization:
+  //         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImwyMDAxNDAwMDRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIyNjJlZTQwMjcxYzdkZDMyM2EzZWNmNDIwMjg3ZjRhYyIsImlhdCI6MTYwNjcyNjg0NiwiZXhwIjoxNjA2ODEzMjQ2fQ.IMX8_G0beCWWdySB8ggNznR6y4xtEscPepIFQ5nqgLE",
+  //     },
+  //     body: JSON.stringify(data),
+  //   };
+  //   try {
+  //     const response = await fetch(
+  //       "https://phone-book-api.herokuapp.com/api/v1/contacts",
+  //       requestOptions
+  //     );
+  //     const res = await response.json();
+  //     console.log(res.data);
+  //     alert("Berhasil Mendaftar");
+  //   } catch (error) {
+  //     alert(error);
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <TableContainer component={Paper}>
