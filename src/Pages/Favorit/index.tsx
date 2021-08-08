@@ -51,8 +51,7 @@ function Favorit() {
         'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImwyMDAxNDAwMDRAZ21haWwuY29tIiwicGFzc3dvcmQiOiIyNjJlZTQwMjcxYzdkZDMyM2EzZWNmNDIwMjg3ZjRhYyIsImlhdCI6MTYwNjcyNjg0NiwiZXhwIjoxNjA2ODEzMjQ2fQ.IMX8_G0beCWWdySB8ggNznR6y4xtEscPepIFQ5nqgLE', 
         // 'Authorization': 'Basic '+btoa('l200140004@gmail.com:l200140004'), 
         // 'Content-Type': 'application/x-www-form-urlencoded'
-      }),   body: FormData,
-      redirect: 'follow'
+      }),  
         };
 
     try {
@@ -60,7 +59,7 @@ function Favorit() {
         "https://phone-book-api.herokuapp.com/api/v1/contacts",
         requestOptions
       );
-      const res = await response.text();
+      const res = await response.json();
       setDataContact(res.data);
       console.log("============================", res);
       alert("Berhasil Mendaftar");

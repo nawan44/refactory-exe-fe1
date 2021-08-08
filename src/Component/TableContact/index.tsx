@@ -22,20 +22,22 @@ const useStyles = makeStyles({
 
 function createData(
   name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number
+  phone: number,
+  job: string,
+  company: string,
+  email: string,
+  image: string,
+
 ) {
-  return { name, calories, fat, carbs, protein };
+  return { name, phone, job, company, email, image };
 }
 
 const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
+  createData("Frozen ", 8111111111, "Arsitek","PT. ABC", "abc@amil.com", "Corn"),
+  createData("Ice", 8111111111, "dokter","PT. DEF", "def@amil.com", "Corn"),
+  createData("Eclair", 8111111111, "Koki", "PT. GHI", "ghi@amil.com", "Corn"),
+  createData("Cupcake", 8111111111, "Arkeolog", "PT. ABC", "abc@amil.com", "Corn"),
+  createData("Gingerbread", 8111111111, "Engineer", "PT. ABC", "abc@amil.com", "Corn"),
 ];
 
 function TableContact () {
@@ -142,9 +144,8 @@ useEffect(() => {
           {rows.map((row) => (
             <TableRow key={row.name}>
               <TableCell>{row.name}</TableCell>
-              {/* <TableCell>{row.phone}</TableCell>
               <TableCell>{row.job}</TableCell>
-              <TableCell>{row.company}</TableCell> */}
+              <TableCell>{row.company}</TableCell>
             </TableRow>
           ))}
         </TableBody>
