@@ -33,15 +33,23 @@ function createData(
 }
 
 const rows = [
-  createData("Frozen ", 8111111111, "Arsitek","PT. ABC", "abc@amil.com", "Corn"),
-  createData("Ice", 8111111111, "dokter","PT. DEF", "def@amil.com", "Corn"),
-  createData("Eclair", 8111111111, "Koki", "PT. GHI", "ghi@amil.com", "Corn"),
-  createData("Cupcake", 8111111111, "Arkeolog", "PT. ABC", "abc@amil.com", "Corn"),
-  createData("Gingerbread", 8111111111, "Engineer", "PT. ABC", "abc@amil.com", "Corn"),
+  createData("Rachmat ", 8111111111, "Arsitek","PT. ABC", "abc@amil.com", "Corn"),
+  createData("Gunawan", 81298673456, "dokter","PT. DEF", "def@amil.com", "Corn"),
+  createData("Saputra", 85612108917, "Koki", "PT. GHI", "ghi@amil.com", "Corn"),
+  createData("Umar", 813627892902, "Arkeolog", "PT. ABC", "abc@amil.com", "Corn"),
+  createData("Abdurrahman", 818191816273, "Engineer", "PT. ABC", "abc@amil.com", "Corn"),
+  createData("Ahmad", 8322981198, "Tukang", "PT. EDC", "edc@amil.com", "Corn"),
+  createData("Abu", 81981827364, "Office Boy", "PT. ABC", "abc@amil.com", "Corn"), 
+  createData("Uwais", 819282816273, "Penulis", "PT. JKL", "jkl@amil.com", "Corn"),
+  createData("Korn", 8322916273, "Driver", "PT. GHI", "ghi@amil.com", "Corn"),
+  createData("Chen", 8198172664, "Cleaning Services", "PT. YHJ", "yhj@amil.com", "Corn"),
 ];
 
 function TableContact () {
   const classes = useStyles();
+  const [open, setOpen] = useState({});
+  // const { dialogAksi } = open;
+
   interface MyData {
     name: string;
     phone: string;
@@ -131,21 +139,32 @@ useEffect(() => {
 
   return (
     <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
+              <Table className={classes.table} stickyHeader aria-label="sticky table">
+
         <TableHead>
           <TableRow>
-            <TableCell>CONTACT</TableCell>
-            <TableCell>COMPANY</TableCell>
-            <TableCell>PHONE</TableCell>
-            <TableCell>FAV</TableCell>
+            <TableCell className="headerTitle">NAMA</TableCell>
+            <TableCell className="headerTitle">PHONE</TableCell>
+            <TableCell className="headerTitle">JOB</TableCell>
+            <TableCell className="headerTitle">COMPANY</TableCell>
+            <TableCell className="headerTitle">EMAIL</TableCell> 
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow key={row.name}>
+            <TableRow key={row.name}   
+            // onClick={() => {
+            //    console.log("---------???", item);
+            //   setOpen(
+            //   );
+            // }}
+            >
               <TableCell>{row.name}</TableCell>
+              <TableCell>{row.phone}</TableCell>
               <TableCell>{row.job}</TableCell>
               <TableCell>{row.company}</TableCell>
+              <TableCell>{row.email}</TableCell>
+
             </TableRow>
           ))}
         </TableBody>

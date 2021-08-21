@@ -49,3 +49,16 @@ label.MuiFormLabel-root.formLabel {
     margin: 0 0 0 10px;
     color: #6D6B6B !important;
 }
+.headerTitle {
+    min-width: 59px;
+    max-width: 59px;
+    word-wrap: break-word;
+    background-color: #f8f8f8;
+    line-height: 1rem;
+    font-size: 10px;
+    text-align: center;
+    margin: 10px 2px 2px 2px;
+    position: sticky;
+  
+    padding: 10px 3px;
+  }
