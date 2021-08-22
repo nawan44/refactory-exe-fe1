@@ -47,8 +47,13 @@ const rows = [
 
 function TableContact () {
   const classes = useStyles();
-  const [open, setOpen] = useState({});
   // const { dialogAksi } = open;
+  const [selectListHistory, setSelectListHistory] = useState({
+    aksiHistory: "",
+    itemHistory: null,
+  });
+  const [open, setOpen] = useState(false);
+
 
   interface MyData {
     name: string;
@@ -154,10 +159,13 @@ useEffect(() => {
           {rows.map((row) => (
             <TableRow key={row.name}   
             // onClick={() => {
-            //    console.log("---------???", item);
-            //   setOpen(
-            //   );
+            //   setSelectListHistory({
+            //     aksiHistory: "lihatData",
+            //     itemHistory:,
+            //   });
+            //   setOpen(true);
             // }}
+
             >
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.phone}</TableCell>

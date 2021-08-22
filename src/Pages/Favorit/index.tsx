@@ -111,8 +111,8 @@ function Favorit() {
     <div style={{ backgroundColor: "#EAE7E7", height: "100vh" }}>
       <Topbar />
       <Grid container style={{ padding: "30px" }}>
-        <Grid item xs={12} sm={12} spacing={3}>
-          <IconButton>
+        <Grid item xs={12} sm={12}  style={{ textAlign:"left"}} spacing={3}>
+          <IconButton style={{textAlign:"left"}}>
             <AddCircleIcon style={{ color: "#000", fontSize: "30px" }} />
             <Link
               to="/add-contact"
