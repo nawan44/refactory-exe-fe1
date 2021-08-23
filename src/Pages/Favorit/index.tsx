@@ -108,7 +108,7 @@ function Favorit() {
   // };
 
   return (
-    <div style={{ backgroundColor: "#EAE7E7", height: "100vh" }}>
+    <div style={{ backgroundColor: "#EAE7E7" , maxHeight:"1000px"}}>
       <Topbar />
       <Grid container style={{ padding: "30px" }}>
         <Grid item xs={12} sm={12}  style={{ textAlign:"left"}} spacing={3}>

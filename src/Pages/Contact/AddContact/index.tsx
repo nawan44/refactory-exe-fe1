@@ -14,7 +14,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 function AddContact() {
   
   return (
-    <div style={{ backgroundColor: "#EAE7E7" , height:"100vh"}}>
+    <div style={{ backgroundColor: "#EAE7E7" , maxHeight:"1000px"}}>
       <Topbar />
       <Container>
         <Typography style={{ margin: "20px 0  20px" }}>ADD CONTACT</Typography>

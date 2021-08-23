@@ -62,3 +62,15 @@ label.MuiFormLabel-root.formLabel {
   
     padding: 10px 3px;
   }
+
+
+.table-container {
+    overflow-y: auto;
+    max-height: 300px;
+  }
+  .table-container thead th {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+  }
+  
